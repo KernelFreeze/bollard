@@ -296,7 +296,7 @@ impl From<ContainerConfig> for Config<String> {
 #[derive(Debug, Copy, Clone, Default, Serialize)]
 pub struct StopContainerOptions {
     /// Number of seconds to wait before killing the container
-    pub t: i64,
+    pub t: u64,
 }
 
 /// Parameters used in the [Start Container API](Docker::start_container())
@@ -830,7 +830,7 @@ where
     /// Memory limit in bytes.
     #[serde(rename = "Memory")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub memory: Option<i64>,
+    pub memory: Option<u64>,
 
     /// Path to `cgroups` under which the container's `cgroup` is created. If the path is not absolute, the path is considered to be relative to the `cgroups` path of the init process. Cgroups are created if they do not already exist.
     #[serde(rename = "CgroupParent")]
@@ -870,22 +870,22 @@ where
     /// The length of a CPU period in microseconds.
     #[serde(rename = "CpuPeriod")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_period: Option<i64>,
+    pub cpu_period: Option<u64>,
 
     /// Microseconds of CPU time that the container can get in a CPU period.
     #[serde(rename = "CpuQuota")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_quota: Option<i64>,
+    pub cpu_quota: Option<u64>,
 
     /// The length of a CPU real-time period in microseconds. Set to 0 to allocate no time allocated to real-time tasks.
     #[serde(rename = "CpuRealtimePeriod")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_realtime_period: Option<i64>,
+    pub cpu_realtime_period: Option<u64>,
 
     /// The length of a CPU real-time runtime in microseconds. Set to 0 to allocate no time allocated to real-time tasks.
     #[serde(rename = "CpuRealtimeRuntime")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_realtime_runtime: Option<i64>,
+    pub cpu_realtime_runtime: Option<u64>,
 
     /// CPUs in which to allow execution (e.g., `0-3`, `0,1`)
     #[serde(rename = "CpusetCpus")]
@@ -915,17 +915,17 @@ where
     /// Kernel memory limit in bytes.
     #[serde(rename = "KernelMemory")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub kernel_memory: Option<i64>,
+    pub kernel_memory: Option<u64>,
 
     /// Hard limit for kernel TCP buffer memory (in bytes).
     #[serde(rename = "KernelMemoryTCP")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub kernel_memory_tcp: Option<i64>,
+    pub kernel_memory_tcp: Option<u64>,
 
     /// Memory soft limit in bytes.
     #[serde(rename = "MemoryReservation")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub memory_reservation: Option<i64>,
+    pub memory_reservation: Option<u64>,
 
     /// Total memory limit (memory + swap). Set as `-1` to enable unlimited swap.
     #[serde(rename = "MemorySwap")]
@@ -935,12 +935,12 @@ where
     /// Tune a container's memory swappiness behavior. Accepts an integer between 0 and 100.
     #[serde(rename = "MemorySwappiness")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub memory_swappiness: Option<i64>,
+    pub memory_swappiness: Option<u64>,
 
     /// CPU quota in units of 10<sup>-9</sup> CPUs.
     #[serde(rename = "NanoCPUs")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub nano_cp_us: Option<i64>,
+    pub nano_cp_us: Option<u64>,
 
     /// Disable OOM Killer for the container.
     #[serde(rename = "OomKillDisable")]
@@ -965,22 +965,22 @@ where
     /// The number of usable CPUs (Windows only).  On Windows Server containers, the processor resource controls are mutually exclusive. The order of precedence is `CPUCount` first, then `CPUShares`, and `CPUPercent` last.
     #[serde(rename = "CpuCount")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_count: Option<i64>,
+    pub cpu_count: Option<u64>,
 
     /// The usable percentage of the available CPUs (Windows only).  On Windows Server containers, the processor resource controls are mutually exclusive. The order of precedence is `CPUCount` first, then `CPUShares`, and `CPUPercent` last.
     #[serde(rename = "CpuPercent")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cpu_percent: Option<i64>,
+    pub cpu_percent: Option<u64>,
 
     /// Maximum IOps for the container system drive (Windows only)
     #[serde(rename = "IOMaximumIOps")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub io_maximum_i_ops: Option<i64>,
+    pub io_maximum_i_ops: Option<u64>,
 
     /// Maximum IO in bytes per second for the container system drive (Windows only)
     #[serde(rename = "IOMaximumBandwidth")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub io_maximum_bandwidth: Option<i64>,
+    pub io_maximum_bandwidth: Option<u64>,
 
     /// The behavior to apply when the container exits. The default is not to restart.
     ///
